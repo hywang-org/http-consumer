@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Table(name = "tbl_res_order")
 public class ResOrder {
 
-    private String id;
+    private Long id;
 
     private String mySeqId;
 
@@ -31,7 +31,7 @@ public class ResOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -41,8 +41,8 @@ public class ResOrder {
      * @param id
      *            order_id
      */
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Column(name = "my_seq_id")
