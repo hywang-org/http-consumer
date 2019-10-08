@@ -87,6 +87,8 @@ public class App {
      * 通道
      */
     private String channel;
+    
+    private Integer maxConnection;
 
     /**
      * 主键自增Id
@@ -245,21 +247,15 @@ public class App {
      * @return extendCode 扩展码
      */
     @Column(name = "extend_code")
-    public String getExtendcode() {
-        return extendCode;
-    }
+    public String getExtendCode() {
+		return extendCode;
+	}
 
-    /**
-     * 扩展码
-     * 
-     * @param extendcode
-     *            扩展码
-     */
-    public void setExtendcode(String extendCode) {
-        this.extendCode = extendCode == null ? null : extendCode.trim();
-    }
+	public void setExtendCode(String extendCode) {
+		this.extendCode = extendCode;
+	}
 
-    /**
+	/**
      * 流速
      * 
      * @return speed_limit 流速
@@ -378,5 +374,14 @@ public class App {
     public void setChannel(String channel) {
         this.channel = channel == null ? null : channel.trim();
     }
+
+	@Column(name = "max_connection")
+	public Integer getMaxConnection() {
+		return maxConnection;
+	}
+
+	public void setMaxConnection(Integer maxConnection) {
+		this.maxConnection = maxConnection;
+	}
 
 }

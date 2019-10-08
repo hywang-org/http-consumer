@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Table(name = "tbl_pro_order")
 public class ProOrder {
 
-    private String id;
+    private Long id;
 
     private String ownMsgId;
 
@@ -54,7 +54,7 @@ public class ProOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -64,8 +64,8 @@ public class ProOrder {
      * @param id
      *            order_id
      */
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Column(name = "own_msg_id")
