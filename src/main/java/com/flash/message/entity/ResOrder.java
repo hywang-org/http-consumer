@@ -22,7 +22,7 @@ public class ResOrder {
 
     private Long id;
 
-    private String mySeqId;
+    private String ownSeqId;
     
     private String appId;
 
@@ -47,16 +47,15 @@ public class ResOrder {
         this.id = id;
     }
 
-    @Column(name = "my_seq_id")
-    public String getMySeqId() {
-        return mySeqId;
-    }
+    public String getOwnSeqId() {
+		return ownSeqId;
+	}
 
-    public void setMySeqId(String mySeqId) {
-        this.mySeqId = mySeqId;
-    }
+	public void setOwnSeqId(String ownSeqId) {
+		this.ownSeqId = ownSeqId;
+	}
 
-    @Column(name = "app_id")
+	@Column(name = "app_id")
     public String getAppId() {
 		return appId;
 	}
