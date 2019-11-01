@@ -107,10 +107,10 @@ public class SessionFactoryBuilder {
         cfg.setProperty("hibernate.connection.release_mode", "on_close");
         cfg.setProperty("hibernate.dialect", dialect);
         cfg.setProperty("hibernate.hbm2ddl.auto", hbm2ddl);
-        cfg.setProperty("hibernate.c3p0.min_size", "1000");
-        cfg.setProperty("hibernate.c3p0.max_size", "5000");
+        cfg.setProperty("hibernate.c3p0.min_size", "10");
+        cfg.setProperty("hibernate.c3p0.max_size", "10");
         cfg.setProperty("hibernate.c3p0.timeout", "1800");
-        cfg.setProperty("hibernate.c3p0.max_statements", "50");
+        cfg.setProperty("hibernate.c3p0.max_statements", "10");
 
         ClassPathScanningCandidateComponentProvider scanner = new ClassPathScanningCandidateComponentProvider(false);
         scanner.addIncludeFilter(new AnnotationTypeFilter(Entity.class));

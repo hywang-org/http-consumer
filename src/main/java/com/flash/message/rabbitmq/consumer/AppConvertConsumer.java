@@ -42,8 +42,16 @@ public class AppConvertConsumer extends DefaultConsumer {
     public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
             throws IOException {
         HttpProducerEntity httpsubmit = JSONObject.parseObject(body, HttpProducerEntity.class);
+        HttpProducerEntity httpsend = new HttpProducerEntity();
+        httpsend.setAccount(Repository.getStringProperty("sendAccount"));
+        httpsend.setPswd(Repository.getStringProperty("sendPwd"));
+        httpsend.setMobile(httpsubmit.getMobile());
+        httpsend.setMsg(httpsubmit.getMsg());
+        httpsend.setExtno(httpsubmit.getExtno());
+        httpsend.setNeedstatus(httpsubmit.getNeedstatus());
+        httpsend.setOwnMsgId(httpsubmit.getOwnMsgId());
         String url = Repository.getStringProperty("httpSendUrl");
-        String params = splitParam(httpsubmit);
+        String params = splitParam(httpsend);
         LOGGER.info("send record:" + params);
         String result = HttpUtil.sendGet(url + params.replaceAll(" ", "%20"));
         String[] str = result.replaceAll("\r|\n", ",").split(",");

@@ -27,10 +27,18 @@ public class Repository {
 
     @Value("${http.send.url}")
     private String httpSendUrl;
+    
+    @Value("${send.account}")
+    private String sendAccount;
+    
+    @Value("${send.pwd}")
+    private String sendPwd;
 
     @PostConstruct
     public void save() {
         properties.put("httpSendUrl", httpSendUrl);
+        properties.put("sendAccount", sendAccount);
+        properties.put("sendPwd", sendPwd);
         print();
     }
 
